@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-neon: #6E4CE5;
+  --color-neon-dim: #5A3DBF;
+  --color-neon-dark: #462FA0;
+  --color-neon-glow: rgba(110, 76, 229, 0.25);
+  --color-neon-glow-strong: rgba(110, 76, 229, 0.35);
+  --color-cyan: #81B2F1;
+  --color-bg-primary: #0A0A12;
+  --color-bg-secondary: #111119;
+  --color-bg-card: #0E0E18;
+  --color-bg-elevated: #1A1A28;
+  --color-border: #2A2A3E;
+  --color-border-glow: #2A1A4A;
+  --color-text-primary: #E8E8F0;
+  --color-text-secondary: #8888A0;
+  --color-text-muted: #555570;
+  --color-error: #FF5555;
+  --color-error-bg: rgba(255, 50, 50, 0.1);
+  --color-error-border: #3A1A1A;
+  --color-neon-hover: #8A6BEF;
+  --color-neon-glow-subtle: rgba(110, 76, 229, 0.06);
+  --color-neon-glow-text: rgba(110, 76, 229, 0.35);
+  --color-neon-glow-bg: rgba(110, 76, 229, 0.1);
+  --color-bg-primary-glass: rgba(10, 10, 18, 0.9);
+  --color-bg-primary-30: rgba(10, 10, 18, 0.3);
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+/* Base */
+body {
+  font-family: var(--font-display);
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Glow button effect */
+@utility glow-neon {
+  box-shadow: 0 0 20px var(--color-neon-glow), 0 0 60px var(--color-neon-glow-subtle);
+}
+
+/* Grid background */
+@utility bg-grid {
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Animations */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@utility animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@utility animate-spin-fast {
+  animation: spin 0.7s linear infinite;
+}
+
+@utility animate-fade-in {
+  animation: fade-in 0.3s ease;
+}
